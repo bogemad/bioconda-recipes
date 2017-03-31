@@ -8,12 +8,12 @@ done
 cp LICENSE VERSION $PREFIX/share/ngsutils/
 
 
-sed -i "3s~.*~DIR=$SP_DIR~g" $SRC_DIR/bin/ngsutils
-sed -i '9s~$DIR~$PREFIX/share~g' $SRC_DIR/bin/ngsutils
-sed -i "27s~.*~~g" $SRC_DIR/bin/ngsutils
-sed -i "28s~.*~~g" $SRC_DIR/bin/ngsutils
-sed -i "s~cat VERSION~cat $PREFIX/share/ngsutils/VERSION~g" $SRC_DIR/bin/ngsutils
+sed -i .bak "3s~.*~DIR=$SP_DIR~g" $SRC_DIR/bin/ngsutils
+sed -i .bak '9s~$DIR~$PREFIX/share~g' $SRC_DIR/bin/ngsutils
+sed -i .bak "27s~.*~~g" $SRC_DIR/bin/ngsutils
+sed -i .bak "28s~.*~~g" $SRC_DIR/bin/ngsutils
+sed -i .bak "s~cat VERSION~cat $PREFIX/share/ngsutils/VERSION~g" $SRC_DIR/bin/ngsutils
 
-sed -i 's~exec "$DIR"/ngsutils/$SUBDIR/$action "$@"~exec python "$DIR"/ngsutils/$SUBDIR/$action "$@"~g' $SRC_DIR/bin/ngsutils
+sed -i .bak 's~exec "$DIR"/ngsutils/$SUBDIR/$action "$@"~exec python "$DIR"/ngsutils/$SUBDIR/$action "$@"~g' $SRC_DIR/bin/ngsutils
 
 python setup.py install
